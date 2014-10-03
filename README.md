@@ -35,7 +35,7 @@ JSON, yeah!
 	[from: String (e.g. 'fortune', 'shackles'),]
 	[priority: String ('low', 'normal', 'high'),]
 	[location: String,]
-	[to: Sting] // magical query syntax overkill here?
+	[to: Sting,] // magical query syntax overkill here?
 	[data: Object (raw data to build custom messages)]
 }
 ```
@@ -55,10 +55,11 @@ subscribers: goebbels, porthos, faltblatt, clock
 {
 	content: 'Say hello to rash.',
 	from: 'shackles',
-	priority: 'high'
-	data:
-		username: 'rash'
+	priority: 'high',
+	data: {
+		username: 'rash',
 		action: 'login'
+	}
 }
 ```
 
