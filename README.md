@@ -1,10 +1,9 @@
-# announce
+# shackspace herald
 
 
 ### magical announce networking inside the hackerspace
 
 ## Things and Names
-- Project HERALD?
 - publisher: sender of the message, wants a message to be announced
 - subscriber: display / announcement device, willing to announce messages
 
@@ -33,9 +32,13 @@ JSON, yeah!
 ```
 {
 	message: String,
-	[publisher OR source: String (e.g. 'fortune', 'shackles'),]
+	[from: String (e.g. 'fortune', 'shackles'),]
 	[priority: Number (0, 1, 2, 3) OR String ('low', 'normal', 'high'),]
 	[location: String,]
-	[subscriber: Sting] // magical query syntax overkill here?
+	[to: Sting] // magical query syntax overkill here?
 }
 ```
+
+### Channel Patterns
+
+Redis pubsub supports channel pattern subscription.
