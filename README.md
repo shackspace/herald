@@ -31,14 +31,52 @@ JSON, yeah!
 
 ```
 {
-	message: String,
+	content: String,
 	[from: String (e.g. 'fortune', 'shackles'),]
-	[priority: Number (0, 1, 2, 3) OR String ('low', 'normal', 'high'),]
+	[priority: String ('low', 'normal', 'high'),]
 	[location: String,]
 	[to: Sting] // magical query syntax overkill here?
+	[data: Object (raw data to build custom messages)]
 }
 ```
 
 ### Channel Patterns
 
-Redis pubsub supports channel pattern subscription.
+Redis pubsub supports channel pattern subscription, but without high load, clients can filter messages themselves, no need for clever pattern syntax.
+
+### Use Cases
+
+#### login / online announce
+
+publishers: shackles
+subscribers: goebbels, porthos, faltblatt, clock
+
+```
+{
+	content: 'Say hello to rash.',
+	from: 'shackles',
+	priority: 'high'
+	data:
+		username: 'rash'
+		action: 'login'
+}
+```
+
+#### fortunes
+
+publishers: fortune
+subscribers: porthos, faltblatt
+
+```
+{
+	content: 'Q:	Why did the tachyon cross the road?\nA:	Because it was on the other side.',
+	from: 'fortune',
+	priority: 'low'
+}
+```
+
+## Identified Problems
+
+- length restriction on message content:
+	- porthos and faltblatt have a low limited number of visible characters
+	- could be solved by scrolling or paging (porthos already does this)
