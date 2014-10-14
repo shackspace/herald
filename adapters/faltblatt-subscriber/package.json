@@ -1,0 +1,17 @@
+{
+  "name": "shack-herald-faltblatt-subscriber",
+  "version": "0.0.1",
+  "description": "faltblatt subscriber / proxy for the shack herald",
+  "main": "app.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rashfael",
+  "license": "MIT",
+  "dependencies": {
+    "hiredis": "^0.1.17",
+    "log4js": "^0.6.21",
+    "redis": "^0.12.1",
+    "request": "^2.45.0"
+  }
+}

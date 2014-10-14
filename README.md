@@ -80,4 +80,4 @@ subscribers: porthos, faltblatt
 
 - length restriction on message content:
 	- porthos and faltblatt have a low limited number of visible characters
-	- could be solved by scrolling or paging (porthos already does this)
+	- could be solved by scrolling or paging (porthos already does scrolling)

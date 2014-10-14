@@ -1,0 +1,5 @@
+module.exports =
+	redis:
+		host: 'localhost'
+		port: 6379
+	flapurl: 'http://flap.shack/index.php?action=text&text='
