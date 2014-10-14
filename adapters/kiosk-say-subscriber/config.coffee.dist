@@ -1,0 +1,5 @@
+module.exports =
+	redis:
+		host: 'localhost'
+		port: 6379
+	sayurl: 'http://kiosk.shack:8080/say/'
