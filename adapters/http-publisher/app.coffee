@@ -36,7 +36,7 @@ app.post '/', (req, res) ->
 	res.end()
 
 app.get '/', (req, res) ->
-	res.send 'see https://github.com/shackspace/herald for all the docs.'
+	res.send 'see https://github.com/shackspace/herald for all the docs. \n POST the JSON to /'
 	res.end()
 
 server = app.listen config.port, ->
