@@ -30,9 +30,13 @@ sub.subscribe "announce"
 app = express()
 app.use bodyParser.json()
 
-app.post '/publish', (req, res) ->
+app.post '/', (req, res) ->
 	log.info 'publishing: ', req.body
 	pub.publish 'announce', JSON.stringify req.body
+	res.end()
+
+app.get '/', (req, res) ->
+	res.send 'see https://github.com/shackspace/herald for all the docs.'
 	res.end()
 
 server = app.listen config.port, ->
