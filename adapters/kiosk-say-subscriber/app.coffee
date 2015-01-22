@@ -37,5 +37,7 @@ sub.on 'message', (channel, message) ->
 		method: 'POST'
 		json:
 			text: text
+	, (err, res, body) ->
+		log.error err if err?
 
 sub.subscribe "announce"
