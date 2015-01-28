@@ -26,18 +26,23 @@ sub.on 'message', (channel, message) ->
 		if parsedMessage.data.action is 'login'
 			text = "Say hello to #{parsedMessage.data.id}"
 			log.info 'sending shackles login to kiosk say'
+
+
 		else if parsedMessage.data.action is 'logout'
-			text = "Say goodbye to #{parsedMessage.data.id}"
-			log.info 'sending shackles logout to kiosk say'
+			# too annoying, do nothing
+			# text = "Say goodbye to #{parsedMessage.data.id}"
+			# log.info 'sending shackles logout to kiosk say'
 	else
 		text = parsedMessage.content
 		log.info 'sending to kiosk say: ', parsedMessage
-	request
-		url: config.sayurl
-		method: 'POST'
-		json:
-			text: text
-	, (err, res, body) ->
-		log.error err if err?
+
+	if text?
+		request
+			url: config.sayurl
+			method: 'POST'
+			json:
+				text: text
+		, (err, res, body) ->
+			log.error err if err?
 
 sub.subscribe "announce"
