@@ -27,8 +27,8 @@ sub.on 'message', (channel, message) ->
 			text = "Say hello to #{parsedMessage.data.id}"
 			log.info 'sending shackles login to kiosk say'
 
-
 		else if parsedMessage.data.action is 'logout'
+			text = null
 			# too annoying, do nothing
 			# text = "Say goodbye to #{parsedMessage.data.id}"
 			# log.info 'sending shackles logout to kiosk say'
